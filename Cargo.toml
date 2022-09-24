@@ -1,0 +1,14 @@
+[package]
+name = "std2"
+version = "0.1.0"
+edition = "2021"
+authors = [
+    "Матвей Т <https://github.com/AtomicGamer9523>"
+]
+rust-version = "1.57.0"
+description = "Standard library for operation systems, useful for rust-osdev"
+license = "MIT"
+repository = "https://github.com/AtomicGamer9523/std2"
+
+
+[dependencies]
