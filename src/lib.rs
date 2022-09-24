@@ -7,9 +7,9 @@
 //! primitives](#primitives), [standard macros](#macros), [I/O] and
 //! [multithreading], among [many other things][other].
 //!
-//! `std2` is available to all Rust crates by default. Therefore, the
+//! `std3` is available to all Rust crates by default. Therefore, the
 //! standard library can be accessed in [`use`] statements through the path
-//! `std2`, as in [`use std2::env`].
+//! `std3`, as in [`use std3::env`].
 //!
 //! # How to read this documentation
 //!
@@ -19,7 +19,7 @@
 //!
 //! Otherwise, you may want to jump to one of these useful sections:
 //!
-//! * [`std2::*` modules](#modules)
+//! * [`std3::*` modules](#modules)
 //! * [Primitive types](#primitives)
 //! * [Standard macros](#macros)
 //! * [The Rust Prelude]
@@ -45,7 +45,7 @@
 //! First of all, The Rust Standard Library is divided into a number of focused
 //! modules, [all listed further down this page](#modules). These modules are
 //! the bedrock upon which all of Rust is forged, and they have mighty names
-//! like [`std2::slice`] and [`std2::cmp`]. Modules' documentation typically
+//! like [`std3::slice`] and [`std3::cmp`]. Modules' documentation typically
 //! includes an overview of the module along with examples, and are a smart
 //! place to start familiarizing yourself with the library.
 //!
@@ -63,7 +63,7 @@
 //! So for example there is a [page for the primitive type
 //! `i32`](primitive::i32) that lists all the methods that can be called on
 //! 32-bit integers (very useful), and there is a [page for the module
-//! `std2::i32`] that documents the constant values [`MIN`] and [`MAX`] (rarely
+//! `std3::i32`] that documents the constant values [`MIN`] and [`MAX`] (rarely
 //! useful).
 //!
 //! Note the documentation for the primitives [`str`] and [`[T]`][prim@slice] (also
@@ -155,7 +155,7 @@
 //! [I/O]: io
 //! [`MIN`]: i32::MIN
 //! [`MAX`]: i32::MAX
-//! [page for the module `std2::i32`]: crate::i32
+//! [page for the module `std3::i32`]: crate::i32
 //! [TCP]: net::TcpStream
 //! [The Rust Prelude]: prelude
 //! [UDP]: net::UdpSocket
@@ -174,9 +174,9 @@
 //! [`for`]: ../book/ch03-05-control-flow.html#looping-through-a-collection-with-for
 //! [`str`]: prim@str
 //! [`mpsc`]: sync::mpsc
-//! [`std2::cmp`]: cmp
-//! [`std2::slice`]: mod@slice
-//! [`use std2::env`]: env/index.html
+//! [`std3::cmp`]: cmp
+//! [`std3::slice`]: mod@slice
+//! [`use std3::env`]: env/index.html
 //! [`use`]: ../book/ch07-02-defining-modules-to-control-scope-and-privacy.html
 //! [crates.io]: https://crates.io
 //! [deref-coercions]: ../book/ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods
