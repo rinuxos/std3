@@ -285,5 +285,5 @@ pub use non_builtin::*;
 
 #[doc(hidden)]
 pub mod __reexports {
-    pub use __spin::{lock_api,relax,portable_atomic};
+    pub use __spin::{lock_api,relax};
 }
