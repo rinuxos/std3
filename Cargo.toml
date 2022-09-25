@@ -12,4 +12,4 @@ repository = "https://github.com/AtomicGamer9523/std2"
 
 
 [dependencies]
-spin = { path = "./spin", features = [] }
+spin = { path = "./spin", features = [], package = "spin", version = "0.9.4" }
