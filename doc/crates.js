@@ -1,1 +1,1 @@
-window.ALL_CRATES = ["std3"];
+window.ALL_CRATES = ["spin","std3"];

@@ -1,4 +1,4 @@
-//! # The Rust Standard Library
+//! # STD3
 //!
 //! The Rust Standard Library is the foundation of portable Rust software, a
 //! set of minimal and battle-tested shared abstractions for the [broader Rust
@@ -189,3 +189,100 @@
 //! [slice]: prim@slice
 
 #![no_std]
+#![doc(html_logo_url = "https://www.api.linkrbot.com/cdn/std3.png")]
+
+#![feature(ready_macro)]
+#![feature(never_type)]
+#![feature(poll_ready)]
+
+
+
+#[doc(hidden)] extern crate alloc as __alloc;
+#[doc(hidden)] extern crate core as __core;
+#[doc(hidden)] extern crate spin as __spin;
+
+pub use __alloc::alloc;
+pub use __core::any;
+pub use __core::arch;
+pub use __core::array;
+pub use __core::ascii;
+pub use __alloc::borrow;
+pub use __alloc::boxed;
+pub use __core::cell;
+pub use __core::char;
+pub use __core::clone;
+pub use __core::cmp;
+pub use __alloc::collections;
+pub use __core::convert;
+pub use __core::default;
+pub use __core::f32;
+pub use __core::f64;
+pub use __core::ffi;
+pub use __alloc::fmt;
+pub use __core::future;
+pub use __core::hash;
+pub use __core::hint;
+pub use __core::i8;
+pub use __core::i16;
+pub use __core::i32;
+pub use __core::i64;
+pub use __core::i128;
+pub use __core::isize;
+pub use __core::iter;
+pub use __core::marker;
+pub use __core::mem;
+pub use __core::num;
+pub use __core::ops;
+pub use __core::option;
+pub use __core::panic;
+pub use __core::pin;
+pub use __core::prelude;
+pub use __core::primitive;
+pub use __core::ptr;
+pub use __alloc::rc;
+pub use __core::result;
+pub use __alloc::slice;
+pub use __alloc::str;
+pub use __alloc::string;
+pub mod sync {
+    pub use __spin::{
+        barrier::{
+            BarrierWaitResult,
+            Barrier
+        },
+        mutex::{
+            MutexGuard,
+            Mutex
+        },
+        rwlock::{
+            RwLockWriteGuard,
+            RwLockReadGuard,
+            RwLock
+        },
+        Once,
+        Lazy
+    };
+    pub use __alloc::sync::{Arc, Weak};
+    pub use __core::sync::atomic;
+}
+pub mod task {
+    pub use __core::task::{ready, Ready, Context, RawWaker, RawWakerVTable, Waker, Poll};
+    pub use __alloc::task::Wake;
+}
+pub use __core::time;
+pub use __core::u8;
+pub use __core::u16;
+pub use __core::u32;
+pub use __core::u64;
+pub use __core::u128;
+pub use __core::usize;
+pub use __alloc::vec;
+
+mod non_builtin;
+pub use non_builtin::*;
+
+
+#[doc(hidden)]
+pub mod __reexports {
+    pub use __spin::{lock_api,relax,portable_atomic};
+}

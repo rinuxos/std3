@@ -6,9 +6,10 @@ authors = [
     "Матвей Т <https://github.com/AtomicGamer9523>"
 ]
 rust-version = "1.57.0"
-description = "Standard library for operation systems, useful for rust-osdev"
+description = "Standard library for operating systems, useful for rust-osdev"
 license = "MIT"
 repository = "https://github.com/AtomicGamer9523/std2"
 
 
 [dependencies]
+spin = { path = "./spin", features = [] }
