@@ -1,6 +1,6 @@
 [package]
 name = "std3"
-version = "0.1.2"
+version = "0.1.21"
 edition = "2021"
 authors = [
     "Матвей Т <https://github.com/AtomicGamer9523>"

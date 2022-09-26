@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `lazy_static\src\lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../lazy_static/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `C:\Users\drunk\.cargo\registry\src\github.com-1ecc6299db9ec823\lazy_static-1.4.0\src\lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../lazy_static/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
         </a><h2 class="location"></h2>
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../../lazy_static/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
@@ -194,37 +194,48 @@
 <span id="188">188</span>
 <span id="189">189</span>
 <span id="190">190</span>
-</pre><pre class="rust"><code><span class="comment">//</span>
-<span class="comment">// MIT License</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright 2016 lazy-static.rs Developers</span>
 <span class="comment">//</span>
-<span class="comment">// Copyright (c) 2022 AtomicGamer9523</span>
-<span class="comment">//</span>
-<span class="comment">// Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="comment">// of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
-<span class="comment">// in the Software without restriction, including without limitation the rights</span>
-<span class="comment">// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
-<span class="comment">// copies of the Software, and to permit persons to whom the Software is</span>
-<span class="comment">// furnished to do so, subject to the following conditions:</span>
-<span class="comment">//</span>
-<span class="comment">// The above copyright notice and this permission notice shall be included in all</span>
-<span class="comment">// copies or substantial portions of the Software.</span>
-<span class="comment">//</span>
-<span class="comment">// THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
-<span class="comment">// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
-<span class="comment">// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
-<span class="comment">// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
-<span class="comment">// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
-<span class="comment">// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
-<span class="comment">// SOFTWARE.</span>
-<span class="comment">//</span>
+<span class="comment">// Licensed under the Apache License, Version 2.0, &lt;LICENSE-APACHE or</span>
+<span class="comment">// http://apache.org/licenses/LICENSE-2.0&gt; or the MIT license &lt;LICENSE-MIT or</span>
+<span class="comment">// http://opensource.org/licenses/MIT&gt;, at your option. This file may not be</span>
+<span class="comment">// copied, modified, or distributed except according to those terms.</span>
 
 <span class="doccomment">/*!
 A macro for declaring lazily evaluated statics.
+
 Using this macro, it is possible to have `static`s that require code to be
 executed at runtime in order to be initialized.
 This includes anything requiring heap allocations, like vectors or hash maps,
 as well as anything that requires function calls to be computed.
+
 # Syntax
+
 ```ignore
 lazy_static! {
     [pub] static ref NAME_1: TYPE_1 = EXPR_1;
@@ -233,9 +244,12 @@ lazy_static! {
     [pub] static ref NAME_N: TYPE_N = EXPR_N;
 }
 ```
+
 Attributes (including doc comments) are supported as well:
+
 ```rust
-use lazy_static::lazy_static;
+# #[macro_use]
+# extern crate lazy_static;
 # fn main() {
 lazy_static! {
     /// This is an example for using doc comment attributes
@@ -243,22 +257,33 @@ lazy_static! {
 }
 # }
 ```
+
 # Semantics
+
 For a given `static ref NAME: TYPE = EXPR;`, the macro generates a unique type that
 implements `Deref&lt;TYPE&gt;` and stores it in a static with name `NAME`. (Attributes end up
 attaching to this type.)
+
 On first deref, `EXPR` gets evaluated and stored internally, such that all further derefs
 can return a reference to the same object. Note that this can lead to deadlocks
 if you have multiple lazy statics that depend on each other in their initialization.
+
 Apart from the lazy initialization, the resulting &quot;static ref&quot; variables
 have generally the same properties as regular &quot;static&quot; variables:
+
 - Any type in them needs to fulfill the `Sync` trait.
 - If the type has a destructor, then it will not run when the process exits.
+
 # Example
+
 Using the macro:
+
 ```rust
-use lazy_static::lazy_static;
+#[macro_use]
+extern crate lazy_static;
+
 use std::collections::HashMap;
+
 lazy_static! {
     static ref HASHMAP: HashMap&lt;u32, &amp;&#39;static str&gt; = {
         let mut m = HashMap::new();
@@ -270,23 +295,48 @@ lazy_static! {
     static ref COUNT: usize = HASHMAP.len();
     static ref NUMBER: u32 = times_two(21);
 }
+
 fn times_two(n: u32) -&gt; u32 { n * 2 }
+
 fn main() {
     println!(&quot;The map has {} entries.&quot;, *COUNT);
     println!(&quot;The entry for `0` is \&quot;{}\&quot;.&quot;, HASHMAP.get(&amp;0).unwrap());
     println!(&quot;A expensive calculation on a static results in: {}.&quot;, *NUMBER);
 }
 ```
+
 # Implementation details
+
 The `Deref` implementation uses a hidden static variable that is guarded by an atomic check on each access.
+
 # Cargo features
+
 This crate provides one cargo feature:
+
 - `spin_no_std`: This allows using this crate in a no-std environment, by depending on the standalone `spin` crate.
+
 */</span>
 
+<span class="attribute">#![<span class="ident">doc</span>(<span class="ident">html_root_url</span> <span class="op">=</span> <span class="string">&quot;https://docs.rs/lazy_static/1.4.0&quot;</span>)]</span>
 <span class="attribute">#![<span class="ident">no_std</span>]</span>
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;spin_no_std&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">path</span><span class="op">=</span><span class="string">&quot;inline_lazy.rs&quot;</span>]</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lazy</span>;
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="attribute">#[<span class="ident">macro_use</span>]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">doc_comment</span>;
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="macro">doctest!</span>(<span class="string">&quot;../README.md&quot;</span>);
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;spin_no_std&quot;</span>)]</span>
+<span class="attribute">#[<span class="ident">path</span><span class="op">=</span><span class="string">&quot;core_lazy.rs&quot;</span>]</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lazy</span>;
+
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">core::ops::Deref</span> <span class="kw">as</span> <span class="ident">__Deref</span>;
 
@@ -329,7 +379,6 @@ This crate provides one cargo feature:
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">attr</span>]</span>)<span class="op">*</span>
         $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">vis</span>)<span class="op">*</span> <span class="kw">struct</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">N</span> {<span class="ident">__private_field</span>: ()}
         <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-        <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_upper_case_globals</span>)]</span>
         $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">vis</span>)<span class="op">*</span> <span class="kw">static</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">N</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">N</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">N</span> {<span class="ident">__private_field</span>: ()};
     };
     () =&gt; ()
@@ -367,7 +416,8 @@ This crate provides one cargo feature:
 <span class="doccomment">/// Example:</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use lazy_static::lazy_static;</span>
+<span class="doccomment">/// #[macro_use]</span>
+<span class="doccomment">/// extern crate lazy_static;</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// lazy_static! {</span>
 <span class="doccomment">///     static ref BUFFER: Vec&lt;u8&gt; = (0..255).collect();</span>
@@ -383,6 +433,7 @@ This crate provides one cargo feature:
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">initialize</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">LazyStatic</span><span class="op">&gt;</span>(<span class="ident">lazy</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) {
     <span class="ident">LazyStatic::initialize</span>(<span class="ident">lazy</span>);
-}</code></pre></div>
+}
+</code></pre></div>
 </section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="lazy_static" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (20a6f3a8a 2022-06-25)" ></div>
 </body></html>

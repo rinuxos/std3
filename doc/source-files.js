@@ -1,5 +1,5 @@
 var sourcesIndex = {};
-sourcesIndex["lazy_static"] = {"name":"","files":["lazy.rs","lib.rs"]};
+sourcesIndex["lazy_static"] = {"name":"","files":["core_lazy.rs","lib.rs"]};
 sourcesIndex["spin"] = {"name":"","dirs":[{"name":"mutex","files":["spin.rs"]}],"files":["barrier.rs","lazy.rs","lib.rs","mutex.rs","once.rs","relax.rs","rwlock.rs"]};
 sourcesIndex["std3"] = {"name":"","files":["lib.rs","non_builtin.rs"]};
 sourcesIndex["uart_16550"] = {"name":"","files":["lib.rs","mmio.rs","port.rs"]};
