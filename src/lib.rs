@@ -295,7 +295,7 @@ pub mod __reexports {
     #[cfg(feature = "reexport")]
     pub extern crate lazy_static;
 
-    #[cfg(feature = "x86_64")]
+    #[cfg(feature = "volatile")]
     pub extern crate volatile;
 
     #[cfg(feature = "x86_64")]

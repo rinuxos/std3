@@ -29,7 +29,7 @@ documentation = "https://docs.rs/x86_64"
 license = "MIT"
 name = "x86_64"
 repository = "https://github.com/rust-osdev/x86_64"
-version = "2.14.10"
+version = "0.14.10"
 edition = "2018"
 rust-version = "1.57" # Needed to support panic! in const fns
 
@@ -51,5 +51,3 @@ doc_cfg = []
 # These features are no longer used and only there for backwards compatibility.
 external_asm = []
 inline_asm = []
-
-volatile = []

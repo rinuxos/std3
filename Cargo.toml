@@ -24,15 +24,13 @@ features = []
 [dependencies.lazy_static]
 package = "lazy_static"
 path = "./lazy_static"
-version = "1.5.0"
+version = "1.4.0"
 
 [dependencies.x86_64]
 optional = true
 package = "x86_64"
 path = "./x86_64"
-default-features = true
-features = ["volatile"]
-version = "2.14.10"
+version = "0.14.10"
 
 [dependencies.uart_16550]
 optional = true
@@ -40,11 +38,18 @@ package = "uart_16550"
 path = "./uart_16550"
 version = "0.2.18"
 
+[dependencies.volatile]
+optional = true
+package = "volatile"
+path = "./volatile"
+version = "0.4.5"
+
 
 [features]
-default = ["full"]
-full = ["x86_64", "uart_16550", "reexport"]
+default = ["x86_64", "uart_16550"]
+full = ["x86_64", "uart_16550", "volatile", "reexport"]
 
+volatile = ["dep:volatile"]
 x86_64 = ["dep:x86_64"]
 uart_16550 = ["dep:uart_16550"]
 reexport = []
