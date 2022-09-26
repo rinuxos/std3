@@ -16,6 +16,7 @@ exclude = [
 
 
 [dependencies.spin]
+version = "0.9.4"
 package = "spin"
 path = "./spin"
 features = []
@@ -23,6 +24,7 @@ features = []
 [dependencies.lazy_static]
 package = "lazy_static"
 path = "./lazy_static"
+version = "1.5.0"
 
 [dependencies.x86_64]
 optional = true
@@ -30,11 +32,13 @@ package = "x86_64"
 path = "./x86_64"
 default-features = true
 features = ["volatile"]
+version = "2.14.10"
 
 [dependencies.uart_16550]
 optional = true
 package = "uart_16550"
 path = "./uart_16550"
+version = "0.2.18"
 
 
 [features]
