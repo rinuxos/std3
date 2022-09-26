@@ -284,7 +284,7 @@ pub use non_builtin::*;
 
 
 #[doc(hidden)]
-#[cfg(feature = "reeport")]
+#[cfg(feature = "reexport")]
 pub mod __reexports {
     #[allow(pub_use_of_private_extern_crate)]
     #[cfg(feature = "reexport")]
