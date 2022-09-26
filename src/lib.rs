@@ -1,5 +1,5 @@
 //! # STD3
-//! STD3 ISN'T FINISHED YET, IF YOU WOULD LIKE TO HELP, PLEASE DO SO [HERE](https://github.com/AtomicGamer9523/std3)
+//! STD3 ISN'T FINISHED YET, IF YOU WOULD LIKE TO HELP, PLEASE DO SO [HERE](https://github.com/AtomicGamer9523/core)
 //!
 //! The Rust Standard Library is the foundation of portable Rust software, a
 //! set of minimal and battle-tested shared abstractions for the [broader Rust
@@ -8,9 +8,9 @@
 //! primitives](#primitives), [standard macros](#macros), [I/O] and
 //! [multithreading], among [many other things][other].
 //!
-//! `std3` is available to all Rust crates by default. Therefore, the
+//! `core` is available to all Rust crates by default. Therefore, the
 //! standard library can be accessed in [`use`] statements through the path
-//! `std3`, as in [`use std3::env`].
+//! `core`, as in [`use core::env`].
 //!
 //! # How to read this documentation
 //!
@@ -20,7 +20,7 @@
 //!
 //! Otherwise, you may want to jump to one of these useful sections:
 //!
-//! * [`std3::*` modules](#modules)
+//! * [`core::*` modules](#modules)
 //! * [Primitive types](#primitives)
 //! * [Standard macros](#macros)
 //! * [The Rust Prelude]
@@ -46,7 +46,7 @@
 //! First of all, The Rust Standard Library is divided into a number of focused
 //! modules, [all listed further down this page](#modules). These modules are
 //! the bedrock upon which all of Rust is forged, and they have mighty names
-//! like [`std3::slice`] and [`std3::cmp`]. Modules' documentation typically
+//! like [`core::slice`] and [`core::cmp`]. Modules' documentation typically
 //! includes an overview of the module along with examples, and are a smart
 //! place to start familiarizing yourself with the library.
 //!
@@ -64,7 +64,7 @@
 //! So for example there is a [page for the primitive type
 //! `i32`](primitive::i32) that lists all the methods that can be called on
 //! 32-bit integers (very useful), and there is a [page for the module
-//! `std3::i32`] that documents the constant values [`MIN`] and [`MAX`] (rarely
+//! `core::i32`] that documents the constant values [`MIN`] and [`MAX`] (rarely
 //! useful).
 //!
 //! Note the documentation for the primitives [`str`] and [`[T]`][prim@slice] (also
@@ -156,7 +156,7 @@
 //! [I/O]: io
 //! [`MIN`]: i32::MIN
 //! [`MAX`]: i32::MAX
-//! [page for the module `std3::i32`]: crate::i32
+//! [page for the module `core::i32`]: crate::i32
 //! [TCP]: net::TcpStream
 //! [The Rust Prelude]: prelude
 //! [UDP]: net::UdpSocket
@@ -175,9 +175,9 @@
 //! [`for`]: ../book/ch03-05-control-flow.html#looping-through-a-collection-with-for
 //! [`str`]: prim@str
 //! [`mpsc`]: sync::mpsc
-//! [`std3::cmp`]: cmp
-//! [`std3::slice`]: mod@slice
-//! [`use std3::env`]: env/index.html
+//! [`core::cmp`]: cmp
+//! [`core::slice`]: mod@slice
+//! [`use core::env`]: env/index.html
 //! [`use`]: ../book/ch07-02-defining-modules-to-control-scope-and-privacy.html
 //! [crates.io]: https://crates.io
 //! [deref-coercions]: ../book/ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods
@@ -190,7 +190,7 @@
 //! [slice]: prim@slice
 
 #![no_std]
-#![doc(html_logo_url = "https://www.api.linkrbot.com/cdn/std3.png")]
+#![doc(html_logo_url = "https://www.api.linkrbot.com/cdn/core.png")]
 
 #![feature(ready_macro)]
 #![feature(never_type)]
@@ -284,6 +284,23 @@ pub use non_builtin::*;
 
 
 #[doc(hidden)]
+#[cfg(feature = "reeport")]
 pub mod __reexports {
+    #[allow(pub_use_of_private_extern_crate)]
+    #[cfg(feature = "reexport")]
+    pub use __spin;
+    #[cfg(feature = "reexport")]
     pub use __spin::{lock_api,relax};
+
+    #[cfg(feature = "reexport")]
+    pub extern crate lazy_static;
+
+    #[cfg(feature = "x86_64")]
+    pub extern crate volatile;
+
+    #[cfg(feature = "x86_64")]
+    pub extern crate x86_64;
+
+    #[cfg(feature = "uart_16550")]
+    pub extern crate uart_16550;
 }

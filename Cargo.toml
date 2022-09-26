@@ -8,12 +8,38 @@ authors = [
 rust-version = "1.57.0"
 description = "Standard library for operating systems, useful for rust-osdev"
 license = "MIT"
-repository = "https://github.com/AtomicGamer9523/std2"
+repository = "https://github.com/AtomicGamer9523/std3"
 exclude = [
     "/doc/**",
     "/.github/**"
 ]
 
 
-[dependencies]
-spin = { path = "./spin", features = [], package = "spin", version = "0.9.4" }
+[dependencies.spin]
+package = "spin"
+path = "./spin"
+features = []
+
+[dependencies.lazy_static]
+package = "lazy_static"
+path = "./lazy_static"
+
+[dependencies.x86_64]
+optional = true
+package = "x86_64"
+path = "./x86_64"
+default-features = true
+features = ["volatile"]
+
+[dependencies.uart_16550]
+optional = true
+package = "uart_16550"
+path = "./uart_16550"
+
+
+[features]
+default = ["x86_64"]
+x86_64 = ["dep:x86_64"]
+uart_16550 = ["dep:uart_16550"]
+reexport = []
+
