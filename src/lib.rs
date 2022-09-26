@@ -1,5 +1,5 @@
 //! # STD3
-//! STD3 ISN'T FINISHED YET, IF YOU WOULD LIKE TO HELP, PLEASE DO SO [HERE](https://github.com/AtomicGamer9523/core)
+//! STD3 ISN'T FINISHED YET, IF YOU WOULD LIKE TO HELP, PLEASE DO SO [HERE](https://github.com/AtomicGamer9523/std3)
 //!
 //! The Rust Standard Library is the foundation of portable Rust software, a
 //! set of minimal and battle-tested shared abstractions for the [broader Rust

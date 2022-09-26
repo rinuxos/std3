@@ -1,6 +1,6 @@
 [package]
 name = "std3"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = [
     "Матвей Т <https://github.com/AtomicGamer9523>"
@@ -38,8 +38,12 @@ path = "./uart_16550"
 
 
 [features]
-default = ["x86_64"]
+default = ["full"]
+full = ["x86_64", "uart_16550", "reexport"]
+
 x86_64 = ["dep:x86_64"]
 uart_16550 = ["dep:uart_16550"]
 reexport = []
 
+[package.metadata.docs.rs]
+features = ["full"]

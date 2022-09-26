@@ -1,1 +1,1 @@
-window.ALL_CRATES = ["spin","std3"];
+window.ALL_CRATES = ["lazy_static","spin","std3","uart_16550","volatile","x86_64"];
