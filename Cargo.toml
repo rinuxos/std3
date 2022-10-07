@@ -1,6 +1,6 @@
 [package]
 name = "std3"
-version = "0.1.22"
+version = "0.1.23"
 edition = "2021"
 authors = [
     "Матвей Т <https://github.com/AtomicGamer9523>"
@@ -10,6 +10,8 @@ description = "Standard library for operating systems, useful for rust-osdev"
 license = "MIT"
 repository = "https://github.com/AtomicGamer9523/std3"
 exclude = [
+    ".gitignore",
+    ".hgignore",
     "/doc/**",
     "/.github/**"
 ]
@@ -43,15 +45,28 @@ package = "volatile"
 path = "./volatile"
 version = "0.4.5"
 
+[dependencies.std3proc]
+package = "std3proc"
+path = "./std3proc"
+version = "0.1.0"
+
+[dependencies.bootloader]
+git = "https://github.com/AtomicGamer9523/bootloader"
+features = [
+    "map_physical_memory"
+]
+version = "0.9.8"
+
 
 [features]
 default = ["x86_64", "uart_16550"]
-full = ["x86_64", "uart_16550", "volatile", "reexport"]
+full = ["x86_64", "uart_16550", "volatile", "reexport", "rinux"]
 
 volatile = ["dep:volatile"]
 x86_64 = ["dep:x86_64"]
 uart_16550 = ["dep:uart_16550"]
 reexport = []
+rinux = []
 
 [package.metadata.docs.rs]
 features = ["full"]

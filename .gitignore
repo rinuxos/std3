@@ -1,2 +1,15 @@
-/target
-/Cargo.lock
+#* Git Specific:
+**/.hg
+
+
+#* Uncomment to exclude Docs:
+# docs/**
+
+
+#* Common:
+#? Folder with build binnary (to large to ship)
+**/target
+#? Cargo.lock
+**/*.lock
+#? Markdownlint Warnings fix:
+.markdownlint.json

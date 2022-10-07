@@ -1,0 +1,20 @@
+syntax: glob
+#* Mercurial Specific:
+.gitignore
+.github/**
+.git/**
+
+
+
+#* Comment to include Docs:
+doc/**
+
+
+
+#* Common:
+#? Folder with build binnary (to large to ship)
+**/target
+#? Cargo.lock
+**/*.lock
+#? Markdownlint Warnings fix:
+.markdownlint.json
