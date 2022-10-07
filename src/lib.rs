@@ -551,7 +551,4 @@ pub mod __reexports {
 
     #[cfg(feature = "uart_16550")]
     pub extern crate uart_16550;
-
-    #[cfg(feature = "rinux")]
-    pub use crate::os::rinux;
 }
