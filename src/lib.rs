@@ -186,19 +186,18 @@
 
 #![no_std]
 #![feature(staged_api)]
-#![stable(feature = "std3", since = "0.1.23")]
+#![stable(feature = "std3",since = "0.1.23")]
 
 
 // Linting
 #![doc(html_logo_url = "https://www.api.linkrbot.com/cdn/std3.png")]
 #![warn(deprecated_in_future)]
 #![warn(missing_docs)]
-#![warn(missing_debug_implementations)]
+#![deny(missing_debug_implementations)]
 #![allow(explicit_outlives_requirements)]
 #![allow(unknown_lints)]
-#![allow(unresolved_link)]
+#![warn(unused_features)]
 #![cfg_attr(not(bootstrap), deny(ffi_unwind_calls))]
-#![allow(unused_features)]
 #![cfg_attr(test, feature(internal_output_capture, print_internals, update_panic_count, rt))]
 #![deny(rustc::existing_doc_keyword)]
 
