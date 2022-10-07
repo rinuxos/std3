@@ -521,26 +521,26 @@ pub use vec::{Vec,Splice,IntoIter};
 
 
 
-#[unstable(feature = "std3_reexports", since = "0.1.23")]
+#[unstable(feature = "std3_reexports", reason = "none")]
 #[cfg(feature = "reexport")]
 pub mod __reexports {
-    #[unstable(feature = "std3_reexports", since = "0.1.23")]
+    #[unstable(feature = "std3_reexports", reason = "none")]
     #[allow(pub_use_of_private_extern_crate)]
     #[cfg(feature = "reexport")]
     pub use __spin as spin;
-    #[unstable(feature = "std3_reexports", since = "0.1.23")]
+    #[unstable(feature = "std3_reexports", reason = "none")]
     #[cfg(feature = "reexport")]
     pub use __spin::{lock_api,relax};
-    #[unstable(feature = "std3_reexports", since = "0.1.23")]
+    #[unstable(feature = "std3_reexports", reason = "none")]
     #[cfg(feature = "reexport")]
     pub extern crate lazy_static;
-    #[unstable(feature = "std3_reexports", since = "0.1.23")]
+    #[unstable(feature = "std3_reexports", reason = "none")]
     #[cfg(feature = "volatile")]
     pub extern crate volatile;
-    #[unstable(feature = "std3_reexports", since = "0.1.23")]
+    #[unstable(feature = "std3_reexports", reason = "none")]
     #[cfg(feature = "x86_64")]
     pub extern crate x86_64;
-    #[unstable(feature = "std3_reexports", since = "0.1.23")]
+    #[unstable(feature = "std3_reexports", reason = "none")]
     #[cfg(feature = "uart_16550")]
     pub extern crate uart_16550;
 }
