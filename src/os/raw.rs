@@ -9,7 +9,7 @@ macro_rules! alias_core_ffi {
         // is fixed.
         #[cfg(all())]
         #[doc(cfg(all()))]
-        // #[stable(feature = "std3", since = "0.1.23")]
+        #[stable(feature = "std3", since = "0.1.23")]
         pub type $t = crate::__core::ffi::$t;
     )*}
 }

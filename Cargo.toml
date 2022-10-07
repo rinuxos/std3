@@ -63,7 +63,5 @@ uart_16550 = ["dep:uart_16550"]
 reexport = []
 rinux = []
 
-restricted = []
-
 [package.metadata.docs.rs]
 features = ["full"]
