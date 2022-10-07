@@ -1,6 +1,0 @@
-[package]
-name = "std3proc"
-version = "0.1.0"
-
-[lib]
-crate_type = ["proc-macro"]

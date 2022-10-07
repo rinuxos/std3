@@ -139,7 +139,7 @@
 //! effect.
 //!
 //! The [`collections`] module defines maps, sets, linked lists and other
-//! typical collection types, including the common [`HashMap<K, V>`].
+//! typical collection types.
 //!
 //! ## Platform abstractions and I/O
 //!
@@ -151,7 +151,7 @@
 //!
 //! The [`thread`] module contains Rust's threading abstractions. [`sync`]
 //! contains further primitive shared memory types, including [`atomic`] and
-//! [`mpsc`], which contains the channel types for message passing.
+//!  which contains the channel types for message passing.
 //!
 //! [I/O]: io
 //! [`MIN`]: i32::MIN
@@ -162,7 +162,6 @@
 //! [owned slice]: boxed
 //! [`Cell`]: cell::Cell
 //! [`FromStr`]: str::FromStr
-//! [`HashMap<K, V>`]: collections::HashMap
 //! [`Mutex`]: sync::Mutex
 //! [`Option<T>`]: option::Option
 //! [`Rc`]: rc::Rc
@@ -172,7 +171,6 @@
 //! [`atomic`]: sync::atomic
 //! [`for`]: ../book/ch03-05-control-flow.html#looping-through-a-collection-with-for
 //! [`str`]: prim@str
-//! [`mpsc`]: sync::mpsc
 //! [`core::cmp`]: cmp
 //! [`core::slice`]: mod@slice
 //! [`use core::env`]: env/index.html
@@ -188,8 +186,8 @@
 
 #![no_std]
 #![feature(staged_api)]
-#![cfg_attr(not(feature = "restricted-std"), stable(feature = "std3", since = "0.1.23"))]
-#![cfg_attr(feature = "restricted-std", unstable(feature = "restricted_std3", issue = "none"))]
+#![cfg_attr(not(feature = "restricted"), stable(feature = "std3", since = "0.1.23"))]
+#![cfg_attr(feature = "restricted", unstable(feature = "restricted_std3", issue = "none"))]
 
 
 // Linting
@@ -199,6 +197,7 @@
 #![warn(missing_debug_implementations)]
 #![allow(explicit_outlives_requirements)]
 #![allow(unknown_lints)]
+#![allow(unresolved_link)]
 #![needs_panic_runtime]
 #![cfg_attr(not(bootstrap), deny(ffi_unwind_calls))]
 #![allow(unused_features)]
@@ -320,7 +319,6 @@ pub extern crate bootloader;
 
 
 include!("keywords.rs");
-include!("primitives.rs");
 
 
 
@@ -519,16 +517,12 @@ pub use __core::r#try;
 
 
 
-// #[cfg(feature = "rinux")]
-#[doc(hidden)] extern crate std3proc;
-
-// #[cfg(feature = "rinux")]
 #[stable(feature = "std3", since = "0.1.23")]
-/// Useful tools for dealing with rinux
-pub mod rinux {
-    #[stable(feature = "std3", since = "0.1.23")]
-    pub use std3proc::main;
-}
+pub use string::{ToString, String};
+#[stable(feature = "std3", since = "0.1.23")]
+pub use vec::{Vec,Splice,IntoIter};
+
+
 
 
 

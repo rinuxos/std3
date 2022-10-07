@@ -45,11 +45,6 @@ package = "volatile"
 path = "./volatile"
 version = "0.4.5"
 
-[dependencies.std3proc]
-package = "std3proc"
-path = "./std3proc"
-version = "0.1.0"
-
 [dependencies.bootloader]
 git = "https://github.com/AtomicGamer9523/bootloader"
 features = [
@@ -67,6 +62,8 @@ x86_64 = ["dep:x86_64"]
 uart_16550 = ["dep:uart_16550"]
 reexport = []
 rinux = []
+
+restricted = []
 
 [package.metadata.docs.rs]
 features = ["full"]

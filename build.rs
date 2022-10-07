@@ -45,7 +45,7 @@ fn main() {
         // - uefi (x86_64-unknown-uefi, i686-unknown-uefi)
         // - JSON targets
         // - Any new targets that have not been explicitly added above.
-        println!("cargo:rustc-cfg=feature=\"restricted-std\"");
+        println!("cargo:rustc-cfg=feature=\"restricted\"");
     }
     println!("cargo:rustc-env=STD_ENV_ARCH={}", env::var("CARGO_CFG_TARGET_ARCH").unwrap());
     println!("cargo:rustc-cfg=backtrace_in_libstd");
