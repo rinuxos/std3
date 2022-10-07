@@ -187,7 +187,7 @@
 #![no_std]
 #![feature(staged_api)]
 #![cfg_attr(not(feature = "restricted"), stable(feature = "std3", since = "0.1.23"))]
-#![cfg_attr(feature = "restricted", unstable(feature = "restricted_std3", issue = "none"))]
+// #![cfg_attr(feature = "restricted", unstable(feature = "restricted_std3", issue = "none"))]
 
 
 // Linting
