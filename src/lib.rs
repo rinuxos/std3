@@ -185,9 +185,9 @@
 //! [slice]: prim@slice
 
 #![no_std]
-#![feature(staged_api)]
-#![cfg_attr(not(feature = "restricted"), stable(feature = "std3", since = "0.1.23"))]
-// #![cfg_attr(feature = "restricted", unstable(feature = "restricted_std3", issue = "none"))]
+// #![feature(staged_api)]
+// #![cfg_attr(not(feature = "restricted"), stable(feature = "std3", since = "0.1.23"))]
+// #![cfg_attr(feature = "restricted", unstable(feature = "std3", issue = "none"))]
 
 
 // Linting
@@ -311,7 +311,7 @@
 #[doc(hidden)] extern crate alloc as __alloc;
 #[doc(hidden)] extern crate core as __core;
 #[doc(hidden)] extern crate spin as __spin;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub extern crate bootloader;
 
 
@@ -324,126 +324,126 @@ include!("keywords.rs");
 
 
 
-#[unstable(feature = "env", reason = "not yet implemeted in rinux", issue = "none")]
+// #[unstable(feature = "env", reason = "not yet implemeted in rinux", issue = "none")]
 /// # Thread management
 /// ## **NOT IMPLEMENTED**
 pub mod env;
-#[unstable(feature = "error", reason = "not yet implemeted in rinux", issue = "none")]
+// #[unstable(feature = "error", reason = "not yet implemeted in rinux", issue = "none")]
 /// # Thread management
 /// ## **NOT IMPLEMENTED**
 pub mod error;
-#[unstable(feature = "io", reason = "not yet implemeted in rinux", issue = "none")]
+// #[unstable(feature = "io", reason = "not yet implemeted in rinux", issue = "none")]
 /// # Thread management
 /// ## **NOT IMPLEMENTED**
 pub mod io;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub mod os;
-#[unstable(feature = "path", reason = "not yet implemeted in rinux", issue = "none")]
+// #[unstable(feature = "path", reason = "not yet implemeted in rinux", issue = "none")]
 /// # Thread management
 /// ## **NOT IMPLEMENTED**
 pub mod path;
-#[unstable(feature = "process", reason = "not yet implemeted in rinux", issue = "none")]
+// #[unstable(feature = "process", reason = "not yet implemeted in rinux", issue = "none")]
 /// # Thread management
 /// ## **NOT IMPLEMENTED**
 pub mod process;
-#[unstable(feature = "thread", reason = "not yet implemeted in rinux", issue = "none")]
+// #[unstable(feature = "thread", reason = "not yet implemeted in rinux", issue = "none")]
 /// # Thread management
 /// ## **NOT IMPLEMENTED**
 pub mod thread;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::alloc;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::any;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::arch;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::array;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::ascii;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::borrow;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::boxed;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::cell;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::char;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::clone;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::cmp;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::collections;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::convert;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::default;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::f32;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::f64;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::ffi;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::fmt;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::future;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::hash;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::hint;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::i8;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::i16;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::i32;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::i64;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::i128;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::isize;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::iter;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::marker;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::mem;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::num;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::ops;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::option;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::pin;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::prelude;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::primitive;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::ptr;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::rc;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::result;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::slice;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::str;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::string;
 #[allow(missing_docs)]
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub mod sync {
-    #[stable(feature = "std3", since = "0.1.23")]
+    // #[stable(feature = "std3", since = "0.1.23")]
     pub use __spin::{
         barrier::{
             BarrierWaitResult,
@@ -461,37 +461,37 @@ pub mod sync {
         Once,
         Lazy
     };
-    #[stable(feature = "std3", since = "0.1.23")]
+    // #[stable(feature = "std3", since = "0.1.23")]
     pub use __alloc::sync::{Arc, Weak};
-    #[stable(feature = "std3", since = "0.1.23")]
+    // #[stable(feature = "std3", since = "0.1.23")]
     pub use __core::sync::atomic;
 }
 #[allow(missing_docs)]
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub mod task {
-    #[stable(feature = "std3", since = "0.1.23")]
+    // #[stable(feature = "std3", since = "0.1.23")]
     pub use __core::task::{ready, Ready, Context, RawWaker, RawWakerVTable, Waker, Poll};
-    #[stable(feature = "std3", since = "0.1.23")]
+    // #[stable(feature = "std3", since = "0.1.23")]
     pub use __alloc::task::Wake;
 }
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::time;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::u8;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::u16;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::u32;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::u64;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::u128;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::usize;
 
@@ -500,26 +500,26 @@ pub use __core::usize;
 
 
 
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::vec;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __core::{
     assert,assert_eq,assert_ne,cfg,column,compile_error,concat,debug_assert,debug_assert_eq,
     debug_assert_ne,env,file,format_args,include,include_bytes,include_str,line,log_syntax,
     matches,module_path,option_env,panic,stringify,todo,unimplemented,unreachable,write,writeln
 };
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::format;
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::r#try;
 
 
 
 
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use string::{ToString, String};
-#[stable(feature = "std3", since = "0.1.23")]
+// #[stable(feature = "std3", since = "0.1.23")]
 pub use vec::{Vec,Splice,IntoIter};
 
 
