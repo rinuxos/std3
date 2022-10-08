@@ -45,6 +45,21 @@ impl RelaxStrategy for Yield {
     }
 }
 
+
+/// Placeholder for the `Yield`, does nothing.
+/// Any methods you call **WILL PANIC**
+#[cfg(not(feature = "std"))]
+pub struct Yield;
+
+#[cfg(feature = "std")]
+#[cfg_attr(docsrs, doc(cfg(feature = "std")))]
+impl RelaxStrategy for Yield {
+    #[inline(always)]
+    fn relax() {
+        panic!("IDEK WHAT WENT WRONG")
+    }
+}
+
 /// A strategy that rapidly spins, without telling the CPU to do any powering down.
 ///
 /// You almost certainly do not want to use this. Use [`Spin`] instead. It exists for completeness and for targets

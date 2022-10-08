@@ -310,7 +310,11 @@
 #[stable(feature = "std3", since = "0.1.23")]
 #[doc(hidden)] extern crate spin as __spin;
 #[unstable(feature = "std3_bootloader", issue = "none")]
-pub extern crate bootloader;
+/// Re-exports the `bootloader` crate.
+pub mod __bootloader {
+    #[unstable(feature = "std3_bootloader", issue = "none")]
+    pub extern crate bootloader;
+}
 
 
 
@@ -323,16 +327,15 @@ include!("keywords.rs");
 
 
 #[unstable(feature = "std3_env", reason = "not yet implemeted in rinux", issue = "none")]
-/// # Thread management
+/// # Environment management
 /// ## **NOT IMPLEMENTED**
 pub mod env;
 #[unstable(feature = "std3_error", reason = "not yet implemeted in rinux", issue = "none")]
-/// # Thread management
+/// # Error management
 /// ## **NOT IMPLEMENTED**
 pub mod error;
-#[unstable(feature = "std3_io", reason = "not yet implemeted in rinux", issue = "none")]
-/// # Thread management
-/// ## **NOT IMPLEMENTED**
+#[unstable(feature = "std3_io", issue = "none")]
+/// # IO management
 pub mod io;
 #[stable(feature = "std3", since = "0.1.23")]
 pub mod os;
@@ -340,9 +343,8 @@ pub mod os;
 /// # Thread management
 /// ## **NOT IMPLEMENTED**
 pub mod path;
-#[unstable(feature = "std3_process", reason = "not yet implemeted in rinux", issue = "none")]
-/// # Thread management
-/// ## **NOT IMPLEMENTED**
+#[unstable(feature = "std3_process", issue = "none")]
+/// # Process management
 pub mod process;
 #[unstable(feature = "std3_thread", reason = "not yet implemeted in rinux", issue = "none")]
 /// # Thread management

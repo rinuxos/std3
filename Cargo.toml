@@ -24,8 +24,8 @@ path = "./spin"
 features = []
 
 [dependencies.lazy_static]
-version = "1.4.0"
-features = ["spin_no_std"]
+path = "./lazy_static"
+version = "1.5.0"
 
 [dependencies.x86_64]
 optional = true
@@ -59,6 +59,7 @@ x86_64 = ["dep:x86_64"]
 uart_16550 = ["dep:uart_16550"]
 reexport = []
 rinux = []
+qemu = []
 
 [package.metadata.docs.rs]
 features = ["full"]
