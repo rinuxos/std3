@@ -200,6 +200,7 @@
 #![cfg_attr(not(bootstrap), deny(ffi_unwind_calls))]
 #![cfg_attr(test, feature(internal_output_capture, print_internals, update_panic_count, rt))]
 #![deny(rustc::existing_doc_keyword)]
+#![allow(stable_features)]
 
 
 // Features
@@ -253,7 +254,6 @@
 #![feature(hasher_prefixfree_extras)]
 #![feature(hashmap_internals)]
 #![feature(int_error_internals)]
-#![feature(is_some_with)]
 #![feature(maybe_uninit_slice)]
 #![feature(maybe_uninit_write_slice)]
 #![feature(mixed_integer_ops)]
