@@ -18,36 +18,27 @@ exclude = [
 
 
 [dependencies.spin]
-version = "0.9.4"
-package = "spin"
 path = "./spin"
 features = []
 
 [dependencies.lazy_static]
 path = "./lazy_static"
-version = "1.5.0"
 
 [dependencies.x86_64]
+path = "../bootloader/x86_64"
 optional = true
-package = "x86_64"
-path = "./x86_64"
-version = "0.14.10"
 
 [dependencies.uart_16550]
 optional = true
-package = "uart_16550"
 path = "./uart_16550"
-version = "0.2.18"
 
 [dependencies.volatile]
 optional = true
-package = "volatile"
-path = "./volatile"
-version = "0.4.5"
+path = "../bootloader/volatile"
 
 [dependencies.bootloader]
+path = "../bootloader"
 features = ["map_physical_memory"]
-version = "0.9.8"
 
 
 [features]
