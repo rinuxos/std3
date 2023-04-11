@@ -6,7 +6,7 @@
 //! set of minimal and battle-tested shared abstractions for the [broader Rust
 //! ecosystem][crates.io]. It offers core types, like [`Vec<T>`] and
 //! [`Option<T>`], library-defined [operations on language
-//! primitives](#primitives), [standard macros](#macros), [I/O] and
+//! [primitives](#primitives), [standard macros](#macros), [I/O] and
 //! [multithreading], among [many other things][other].
 //!
 //! `core` is available to all Rust crates by default. Therefore, the
@@ -186,8 +186,7 @@
 
 #![no_std]
 #![feature(staged_api)]
-#![stable(feature = "std3",since = "0.1.23")]
-
+#![stable(feature = "std3", since = "0.1.23")]
 
 // Linting
 #![doc(html_logo_url = "https://www.api.linkrbot.com/cdn/std3.png")]
@@ -202,14 +201,12 @@
 #![deny(rustc::existing_doc_keyword)]
 #![allow(stable_features)]
 
-
 // Features
 #![feature(ready_macro)]
 #![feature(alloc_error_handler)]
 #![feature(allocator_internals)]
 #![feature(allow_internal_unsafe)]
 #![feature(allow_internal_unstable)]
-#![feature(box_syntax)]
 #![feature(c_unwind)]
 #![feature(cfg_target_thread_local)]
 #![feature(concat_idents)]
@@ -239,13 +236,9 @@
 #![feature(rustdoc_internals)]
 #![feature(thread_local)]
 #![feature(try_blocks)]
-#![feature(array_error_internals)]
-#![feature(atomic_mut_ptr)]
-#![feature(char_error_internals)]
 #![feature(char_internals)]
 #![feature(core_intrinsics)]
 #![feature(cstr_from_bytes_until_nul)]
-#![feature(cstr_internals)]
 #![feature(duration_checked_float)]
 #![feature(duration_constants)]
 #![feature(exact_size_is_empty)]
@@ -253,7 +246,6 @@
 #![feature(float_minimum_maximum)]
 #![feature(hasher_prefixfree_extras)]
 #![feature(hashmap_internals)]
-#![feature(int_error_internals)]
 #![feature(maybe_uninit_slice)]
 #![feature(maybe_uninit_write_slice)]
 #![feature(mixed_integer_ops)]
@@ -299,9 +291,6 @@
 #![feature(trace_macros)]
 #![feature(core_ffi_c)]
 #![feature(poll_ready)]
-
-
-
 
 #[stable(feature = "std3", since = "0.1.23")]
 #[doc(hidden)] extern crate alloc as __alloc;
@@ -466,6 +455,8 @@ pub mod sync {
     #[stable(feature = "std3", since = "0.1.23")]
     pub use __core::sync::atomic;
 }
+#[stable(feature = "std3", since = "0.1.23")]
+pub use lazy_static::lazy_static;
 #[allow(missing_docs)]
 #[stable(feature = "std3", since = "0.1.23")]
 pub mod task {
@@ -495,11 +486,6 @@ pub use __core::u128;
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::usize;
 
-
-
-
-
-
 #[stable(feature = "std3", since = "0.1.23")]
 pub use __alloc::vec;
 #[stable(feature = "std3", since = "0.1.23")]
@@ -514,16 +500,10 @@ pub use __alloc::format;
 #[allow(deprecated, deprecated_in_future)]
 pub use __core::r#try;
 
-
-
-
 #[stable(feature = "std3", since = "0.1.23")]
 pub use string::{ToString, String};
 #[stable(feature = "std3", since = "0.1.23")]
 pub use vec::{Vec,Splice,IntoIter};
-
-
-
 
 #[unstable(feature = "std3_reexports", issue = "none")]
 #[cfg(feature = "reexport")]
@@ -536,9 +516,6 @@ pub mod __reexports {
     #[unstable(feature = "std3_reexports", issue = "none")]
     #[cfg(feature = "reexport")]
     pub use __spin::{lock_api,relax};
-    #[unstable(feature = "std3_reexports", issue = "none")]
-    #[cfg(feature = "reexport")]
-    pub extern crate lazy_static;
     #[unstable(feature = "std3_reexports", issue = "none")]
     #[cfg(feature = "volatile")]
     pub extern crate volatile;

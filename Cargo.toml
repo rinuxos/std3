@@ -16,30 +16,25 @@ exclude = [
     "/.github/**"
 ]
 
-
-[dependencies.spin]
-path = "./spin"
-features = []
-
-[dependencies.lazy_static]
-path = "./lazy_static"
-
 [dependencies.x86_64]
-path = "../bootloader/x86_64"
+path = "../memutils/x86_64"
 optional = true
 
 [dependencies.uart_16550]
+version = "0.2"
 optional = true
-path = "./uart_16550"
 
 [dependencies.volatile]
 optional = true
-path = "../bootloader/volatile"
+path = "../memutils/volatile"
 
 [dependencies.bootloader]
 path = "../bootloader"
 features = ["map_physical_memory"]
 
+[dependencies]
+lazy_static = { version = "1.4", features = ["spin_no_std"] }
+spin = "0.9"
 
 [features]
 default = ["x86_64", "uart_16550"]
